@@ -5,10 +5,12 @@ require_once 'php/data.php';
 $data = new data();
 
 //Uncomment for debugging data
+/*
 echo '<pre>';
 	print_r(print_r($data->getData()));
 echo '</pre>';
 exit;
+*/
 
 // !Make PDF
 require_once 'php/pdf.php';

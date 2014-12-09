@@ -10,6 +10,22 @@ require('helpers/fpdf/fpdf.php');
  * @extends FPDF
  */
 class pdf extends FPDF {
+	
+	/**
+	 * Footer function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	function Footer() {
+		
+	    $this->SetY(-10);
+	    $this->SetFont('Arial','',6);
+	    $this->Cell(60, 10, 'WebPMS Update', 0, 0, 'L');
+	    $this->Cell(70, 10, 'Pagina ' . $this->PageNo() , 0, 0, 'C');
+	    $this->Cell(60, 10, date('d-m-Y'), 0, 0, 'R');
+	    
+	}
 
 	/**
 	 * makePdf function.
@@ -20,9 +36,9 @@ class pdf extends FPDF {
 	 * @return void
 	 */
 	function makePdf($data, $location) {
-
+		
 		// !New Document
-		$pdf = new FPDF('P',  'mm', 'A4');
+		$pdf = new pdf('P',  'mm', 'A4');
 
 		// !Start Project Pages
 		$pdf->AddPage();
@@ -135,7 +151,7 @@ class pdf extends FPDF {
 	        $pdf->Ln();
 
         }
-
+		
 		$pdf->Output('WebPMS_Update_' . date('Ymd') . '.pdf', $location);
 
 		return $pdf;
