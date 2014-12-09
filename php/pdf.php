@@ -22,7 +22,7 @@ class pdf extends FPDF {
 	    $this->SetY(-10);
 	    $this->SetFont('Arial','',6);
 	    $this->Cell(60, 10, 'WebPMS Update', 0, 0, 'L');
-	    $this->Cell(70, 10, 'Pagina ' . $this->PageNo() , 0, 0, 'C');
+	    $this->Cell(70, 10, 'Pagina ' . $this->PageNo(), 0, 0, 'C');
 	    $this->Cell(60, 10, date('d-m-Y'), 0, 0, 'R');
 	    
 	}
